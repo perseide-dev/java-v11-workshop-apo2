@@ -1,20 +1,50 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package jdk_linkedlist;
 
-/**
- *
- * @author perseidexv
- */
+import java.util.Scanner;
+
 public class Jdk_linkedlist {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        int opt;
+
+        do {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("List menu");
+            System.out.println("Write an option");
+            System.out.println("1-Simple linkedlist");
+            System.out.println("2-Circula LinkedList");
+            System.out.println("3-Double LinkedList");
+            System.out.println("4-Circula Double LinkedList");
+            System.out.println("5-Salir");
+
+            opt = sc.nextInt();
+            switch (opt) {
+                case 1:
+                    System.out.println("Simple linkedlist");
+                    List list1 = new List();
+
+                    break;
+                case 2:
+                    System.out.println("option 1");
+                    break;
+                case 3:
+                    System.out.println("option 1");
+                    break;
+                case 4:
+                    System.out.println("option 1");
+                    break;
+                case 5:
+                    System.out.println("Godbye :3");
+                    break;
+                default:
+                    System.out.println("you write correct option");
+                    break;
+
+            }
+        } while (opt != 5);
+
     }
-    
+
 }
