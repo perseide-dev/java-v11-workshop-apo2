@@ -35,17 +35,19 @@ public class List {
     
     public void push(int value)
     {
+        System.out.println("value to push is:" + value);
         Node x = new  Node(value);
+        System.out.println("node declared" + value);
         Node p = head;
         if(head == null)
         {
-            head = x;
+            this.head = x;
         }
         else 
         {
             while(p.getLink() == null)
             {
-                p = p.getLink();
+                this = p.getLink();
             }
             p.setLink(x);
         }

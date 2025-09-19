@@ -7,7 +7,10 @@ public class Jdk_linkedlist {
     public static void main(String[] args) {
 
         int opt;
-        int opta;
+       
+        
+     
+        
 
         do {
             Scanner sc = new Scanner(System.in);
@@ -23,10 +26,18 @@ public class Jdk_linkedlist {
             opt = sc.nextInt();
             switch (opt) {
                 case 1:
-
+                     int opta;
+                     
                     do {
                         Scanner sca = new Scanner(System.in);
+                        Scanner io = new Scanner(System.in);
+                        List list = new List();
+                        int pushValue;
+        
+                        
+                                
                         System.out.println("Simple linkedlist");
+                        list.printListValues();
                         System.out.println("List menu");
                         System.out.println("Write an option");
                         System.out.println("1-Push");
@@ -43,7 +54,12 @@ public class Jdk_linkedlist {
 
                         switch (opta) {
                             case 1:
-                                System.out.println("Push");
+                                System.out.println("----Push----");
+                                System.out.println("write value to push");
+                                
+                                pushValue = io.nextInt();
+                                list.push(pushValue);
+                       
                                 break;
 
                             case 2:
