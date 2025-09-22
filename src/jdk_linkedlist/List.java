@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package jdk_linkedlist;
 
-/**
- *
- * @author perseidexv
- */
 public class List {
     private Node head;
 
@@ -22,50 +14,42 @@ public class List {
     public void setHead(Node head) {
         this.head = head;
     }
-    
-    
-    public void unShift(int value)
-    {
-        Node x = new  Node(value);
-        if(head != null){
+
+    // Inserta un nodo al inicio
+    public void unShift(int value) {
+        Node x = new Node(value);
+        if (head != null) {
             x.setLink(head);
-        };
+        }
         head = x;
     }
-    
-    public void push(int value)
-    {
-        System.out.println("value to push is:" + value);
-        Node x = new  Node(value);
-        System.out.println("node declared" + value);
-        Node p = head;
-        if(head == null)
-        {
-            this.head = x;
-        }
-        else 
-        {
-            while(p.getLink() == null)
-            {
-                this = p.getLink();
+
+    // Inserta un nodo al final
+    public void push(int value) {
+        System.out.println("Value to push is: " + value);
+        Node x = new Node(value);
+        if (head == null) {
+            head = x;
+        } else {
+            Node p = head;
+            // CORRECCIÓN: recorrer hasta que p.getLink() sea null
+            while (p.getLink() != null) {
+                p = p.getLink();
             }
             p.setLink(x);
         }
     }
-    
-    public void printListValues(){
-        
+
+    // Imprime los valores de la lista
+    public void printListValues() {
         Node p = head;
-        
-        if(p == null)
-        {
-            System.out.println("empty list");
+        if (p == null) {
+            System.out.println("Empty list");
+            return;
         }
-        while(p != null)
-        {
+        while (p != null) {
             System.out.println(p.getValue());
             p = p.getLink();
         }
     }
-    
 }
