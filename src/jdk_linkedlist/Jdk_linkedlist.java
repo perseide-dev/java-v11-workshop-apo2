@@ -88,7 +88,11 @@ public class Jdk_linkedlist {
 
                             case 6: // Delete 
                                 System.out.println("----Delete----");
-                                System.out.println("Option not implemented yet.");
+                                System.out.print("Write value: ");
+                                int deleteValue = sc.nextInt();
+                                list.delete(deleteValue);
+                                System.out.println("List after delete:");
+                                list.printListValues();
                                 break;
 
                             case 7: // Exit submenu

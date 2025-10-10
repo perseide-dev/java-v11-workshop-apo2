@@ -90,7 +90,7 @@ public class List {
     }
 
     // Imprime los valores de la lista
-     public void printListValues() {
+    public void printListValues() {
         if (head == null) {
             System.out.println("Empty list");
             return;
@@ -102,5 +102,24 @@ public class List {
             p = p.getLink();
         }
     }
-    
+
+    public void delete(int value) {
+        if (head == null) {
+
+        } else {
+            Node prev = head;
+            Node curr = head.getLink();
+            boolean remove = false;
+            while (curr != null && remove == false) {
+                if (curr.getValue() == value) {
+                    prev.setLink(curr.getLink());
+                    remove = true;
+                } else {
+                    prev = curr;
+                    curr = curr.getLink();
+                }
+            }
+        }
+    }
+
 }
