@@ -32,7 +32,7 @@ public class List {
             head = x;
         } else {
             Node p = head;
-            // CORRECCIÓN: recorrer hasta que p.getLink() sea null
+    
             while (p.getLink() != null) {
                 p = p.getLink();
             }
