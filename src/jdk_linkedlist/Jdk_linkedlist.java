@@ -24,24 +24,23 @@ public class Jdk_linkedlist {
                     List list = new List();
                     int opta;
                     do {
-                        System.out.println("\nSimple LinkedList (current):");
-                        list.printListValues();
 
                         System.out.println("\nList submenu");
                         System.out.println("1-Push (append at end)");
                         System.out.println("2-Shift (remove first)");
-                        System.out.println("3-Insert Max (TODO)");
-                        System.out.println("4-Insert Min (TODO)");
-                        System.out.println("5-Insert (TODO)");
-                        System.out.println("6-unShift (insert at head)");
-                        System.out.println("7-Pop (remove last)");
-                        System.out.println("8-Delete (TODO)");
-                        System.out.println("9-Exit submenu");
+                        System.out.println("3-Insert (TODO)");
+                        System.out.println("4-unShift (insert at head)");
+                        System.out.println("5-Pop (remove last)");
+                        System.out.println("6-Delete (TODO)");
+                        System.out.println("7-Exit submenu");
+
+                        System.out.println("\nSimple LinkedList (current):");
+                        list.printListValues();
 
                         opta = sc.nextInt();
 
                         switch (opta) {
-                            case 1: // push
+                            case 1: // Push (append at end)
                                 System.out.println("----Push----");
                                 System.out.print("Write value to push: ");
                                 int pushValue = sc.nextInt();
@@ -50,50 +49,45 @@ public class Jdk_linkedlist {
                                 list.printListValues();
                                 break;
 
-                            case 6: // unShift
-                                System.out.println("----unShift----");
-                                System.out.print("Write value to unShift: ");
-                                int unshiftValue = sc.nextInt();
-                                list.unShift(unshiftValue);
-                                System.out.println("List after unShift:");
-                                list.printListValues();
-                                break;
-
-                            case 2: // Shift (ejemplo simple)
+                            case 2: // Shift (remove first)
                                 System.out.println("----Shift (remove first)----");
                                 if (list.getHead() == null) {
                                     System.out.println("Empty list");
                                 } else {
                                     list.setHead(list.getHead().getLink());
+                                    System.out.println("List after shift:");
                                     list.printListValues();
                                 }
                                 break;
 
-                            case 7: // Pop (remove last) ejemplo simple
+                            case 3: // Insert at position
+                                System.out.println("----Insert----");
+                                System.out.print("Write value: ");
+                                int insertValue = sc.nextInt();
+                                System.out.print("Write position (0-based): ");
+                                int positionValue = sc.nextInt();
+                                
+                                list.insert(insertValue, positionValue); 
+                                System.out.println("List after insert:");
+                                list.printListValues();
+                                break;
+
+                            case 4: // unShift (insert at head)
+                                System.out.println("----unShift----");
+                               
+                                break;
+
+                            case 5: // Pop (remove last)
                                 System.out.println("----Pop (remove last)----");
-                                if (list.getHead() == null) {
-                                    System.out.println("Empty list");
-                                } else if (list.getHead().getLink() == null) {
-                                    list.setHead(null);
-                                    System.out.println("List is now empty");
-                                } else {
-                                    var p = list.getHead();
-                                    while (p.getLink().getLink() != null) {
-                                        p = p.getLink();
-                                    }
-                                    p.setLink(null);
-                                    list.printListValues();
-                                }
+                              
                                 break;
 
-                            case 3:
-                            case 4:
-                            case 5:
-                            case 8:
+                            case 6: // Delete (TODO)
+                                System.out.println("----Delete----");
                                 System.out.println("Option not implemented yet.");
                                 break;
 
-                            case 9:
+                            case 7: // Exit submenu
                                 System.out.println("Back to main menu.");
                                 break;
 
@@ -102,7 +96,7 @@ public class Jdk_linkedlist {
                                 break;
                         }
 
-                    } while (opta != 9);
+                    } while (opta != 7);
                     break;
                 }
 

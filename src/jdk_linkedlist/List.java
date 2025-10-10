@@ -1,6 +1,7 @@
 package jdk_linkedlist;
 
 public class List {
+
     private Node head;
 
     public List() {
@@ -26,18 +27,41 @@ public class List {
 
     // Inserta un nodo al final
     public void push(int value) {
-        System.out.println("Value to push is: " + value);
         Node x = new Node(value);
         if (head == null) {
             head = x;
         } else {
             Node p = head;
-    
+
             while (p.getLink() != null) {
                 p = p.getLink();
             }
             p.setLink(x);
         }
+    }
+
+    public void insert(int value, int position) {
+        if (position < 0) {
+            position = 0; // normaliza negativos
+        }
+        Node x = new Node(value);
+
+        if (head == null || position == 0) {
+            x.setLink(head);
+            head = x;
+            return;
+        }
+
+        Node p = head;
+        int index = 0;
+        while (p.getLink() != null && index < position - 1) {
+            p = p.getLink();
+            index++;
+        }
+
+
+        x.setLink(p.getLink());
+        p.setLink(x);
     }
 
     // Imprime los valores de la lista
