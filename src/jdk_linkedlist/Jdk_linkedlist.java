@@ -28,10 +28,10 @@ public class Jdk_linkedlist {
                         System.out.println("\nList submenu");
                         System.out.println("1-Push (append at end)");
                         System.out.println("2-Shift (remove first)");
-                        System.out.println("3-Insert (TODO)");
-                        System.out.println("4-unShift (insert at head)");
+                        System.out.println("3-Insert (insert on position)");
+                        System.out.println("4-unShift (delet at head)");
                         System.out.println("5-Pop (remove last)");
-                        System.out.println("6-Delete (TODO)");
+                        System.out.println("6-Delete (by value)");
                         System.out.println("7-Exit submenu");
 
                         System.out.println("\nSimple LinkedList (current):");
@@ -66,23 +66,27 @@ public class Jdk_linkedlist {
                                 int insertValue = sc.nextInt();
                                 System.out.print("Write position (0-based): ");
                                 int positionValue = sc.nextInt();
-                                
-                                list.insert(insertValue, positionValue); 
+
+                                list.insert(insertValue, positionValue);
                                 System.out.println("List after insert:");
                                 list.printListValues();
                                 break;
 
                             case 4: // unShift (insert at head)
                                 System.out.println("----unShift----");
-                               
+                                list.unShift();
+                                System.out.println("List after unShift:");
+                                list.printListValues();
                                 break;
 
                             case 5: // Pop (remove last)
                                 System.out.println("----Pop (remove last)----");
-                              
+                                list.pop();
+                                System.out.println("List after pop:");
+                                list.printListValues();
                                 break;
 
-                            case 6: // Delete (TODO)
+                            case 6: // Delete 
                                 System.out.println("----Delete----");
                                 System.out.println("Option not implemented yet.");
                                 break;

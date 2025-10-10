@@ -17,7 +17,7 @@ public class List {
     }
 
     // Inserta un nodo al inicio
-    public void unShift(int value) {
+    public void shift(int value) {
         Node x = new Node(value);
         if (head != null) {
             x.setLink(head);
@@ -59,21 +59,48 @@ public class List {
             index++;
         }
 
-
         x.setLink(p.getLink());
         p.setLink(x);
     }
 
+    public void unShift() {
+        Node h = head;
+
+        if (h == null) {
+
+        } else {
+            head = h.getLink();
+        }
+    }
+
+    public void pop() {
+        if (head == null) {
+
+        } else {
+            Node prev = head;
+            Node curr = head.getLink();
+            while (curr.getLink() != null) {
+                prev = curr;
+                curr = curr.getLink();
+
+            }
+            prev.setLink(null);
+        }
+
+    }
+
     // Imprime los valores de la lista
-    public void printListValues() {
-        Node p = head;
-        if (p == null) {
+     public void printListValues() {
+        if (head == null) {
             System.out.println("Empty list");
             return;
         }
+        Node p = head;
         while (p != null) {
             System.out.println(p.getValue());
+            System.out.println("----------------");
             p = p.getLink();
         }
     }
+    
 }
