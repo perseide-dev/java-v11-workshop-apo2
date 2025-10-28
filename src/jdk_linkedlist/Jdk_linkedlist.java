@@ -5,100 +5,84 @@ import java.util.Scanner;
 public class Jdk_linkedlist {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in); // un solo Scanner
+        Scanner sc = new Scanner(System.in);
         int opt;
 
         do {
-            System.out.println("List menu");
-            System.out.println("Write an option");
-            System.out.println("1-Simple LinkedList");
-            System.out.println("2-Circular LinkedList");
-            System.out.println("5-Exit");
+            System.out.println("===== MAIN MENU =====");
+            System.out.println("1 - Simple LinkedList");
+            System.out.println("2 - Circular LinkedList");
+            System.out.println("5 - Exit");
+            System.out.print("Select an option: ");
             opt = sc.nextInt();
 
             switch (opt) {
                 case 1: {
-                    // Crear la lista UNA SOLA VEZ para todo el submenú
                     List list = new List();
                     int opta;
                     do {
+                        System.out.println("\n--- SIMPLE LINKEDLIST MENU ---");
+                        System.out.println("1 - Insert at front (unShift)");
+                        System.out.println("2 - Insert at end (Push)");
+                        System.out.println("3 - Insert at position");
+                        System.out.println("4 - Delete at front (Shift)");
+                        System.out.println("5 - Delete at end (Pop)");
+                        System.out.println("6 - Delete by value");
+                        System.out.println("7 - Back to main menu");
 
-                        System.out.println("\nList submenu");
-                        System.out.println("1-Push (append at end)");
-                        System.out.println("2-Shift (remove first)");
-                        System.out.println("3-Insert (insert on position)");
-                        System.out.println("4-unShift (delet at head)");
-                        System.out.println("5-Pop (remove last)");
-                        System.out.println("6-Delete (by value)");
-                        System.out.println("7-Exit submenu");
-
-                        System.out.println("\nSimple LinkedList (current):");
+                        System.out.println("\nCurrent list:");
                         list.printListValues();
 
+                        System.out.print("Choose an option: ");
                         opta = sc.nextInt();
 
                         switch (opta) {
-                            case 1: // Push (append at end)
-                                System.out.println("----Push----");
-                                System.out.print("Write value to push: ");
-                                int pushValue = sc.nextInt();
-                                list.push(pushValue);
-                                System.out.println("List after push:");
-                                list.printListValues();
+                            case 1: // unShift (insert at head)
+                                System.out.println("---- Insert at front ----");
+                                System.out.print("Enter value: ");
+                                int frontValue = sc.nextInt();
+                                list.insertAtFront(frontValue);
                                 break;
 
-                            case 2: // Shift (remove first)
-                                System.out.println("----Shift (remove first)----");
-                                if (list.getHead() == null) {
-                                    System.out.println("Empty list");
-                                } else {
-                                    list.setHead(list.getHead().getLink());
-                                    System.out.println("List after shift:");
-                                    list.printListValues();
-                                }
+                            case 2: // Push (append at end)
+                                System.out.println("---- Insert at end ----");
+                                System.out.print("Enter value: ");
+                                int endValue = sc.nextInt();
+                                list.insertAtEnd(endValue);
                                 break;
 
                             case 3: // Insert at position
-                                System.out.println("----Insert----");
-                                System.out.print("Write value: ");
+                                System.out.println("---- Insert at position ----");
+                                System.out.print("Enter value: ");
                                 int insertValue = sc.nextInt();
-                                System.out.print("Write position (0-based): ");
-                                int positionValue = sc.nextInt();
-
-                                list.insert(insertValue, positionValue);
-                                System.out.println("List after insert:");
-                                list.printListValues();
+                                System.out.print("Enter position (0-based): ");
+                                int posValue = sc.nextInt();
+                                list.insertInto(insertValue, posValue);
                                 break;
 
-                            case 4: // unShift (insert at head)
-                                System.out.println("----unShift----");
-                                list.unShift();
-                                System.out.println("List after unShift:");
-                                list.printListValues();
+                            case 4: // Shift (remove first)
+                                System.out.println("---- Delete at front ----");
+                                list.deleteAtFront();
                                 break;
 
                             case 5: // Pop (remove last)
-                                System.out.println("----Pop (remove last)----");
-                                list.pop();
-                                System.out.println("List after pop:");
-                                list.printListValues();
+                                System.out.println("---- Delete at end ----");
+                                list.deleteAtEnd();
                                 break;
 
-                            case 6: // Delete 
-                                System.out.println("----Delete----");
-                                System.out.print("Write value: ");
+                            case 6: // Delete by value
+                                System.out.println("---- Delete by value ----");
+                                System.out.print("Enter value: ");
                                 int deleteValue = sc.nextInt();
                                 list.delete(deleteValue);
-                                System.out.println("List after delete:");
-                                list.printListValues();
                                 break;
 
-                            case 7: // Exit submenu
-                                System.out.println("Back to main menu.");
+                            case 7:
+                                System.out.println("Returning to main menu...");
                                 break;
 
                             default:
-                                System.out.println("Please write a correct option.");
+                                System.out.println("Invalid option.");
                                 break;
                         }
 
@@ -107,17 +91,15 @@ public class Jdk_linkedlist {
                 }
 
                 case 2:
-                case 3:
-                case 4:
-                    System.out.println("Option not implemented yet.");
+                    System.out.println("Circular LinkedList not fully implemented yet.");
                     break;
 
                 case 5:
-                    System.out.println("Goodbye :3");
+                    System.out.println("Goodbye!");
                     break;
 
                 default:
-                    System.out.println("Please write a correct option.");
+                    System.out.println("Invalid option, please try again.");
                     break;
             }
         } while (opt != 5);
