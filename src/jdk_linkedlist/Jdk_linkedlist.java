@@ -13,8 +13,6 @@ public class Jdk_linkedlist {
             System.out.println("Write an option");
             System.out.println("1-Simple LinkedList");
             System.out.println("2-Circular LinkedList");
-            System.out.println("3-Double LinkedList");
-            System.out.println("4-Circular Double LinkedList");
             System.out.println("5-Exit");
             opt = sc.nextInt();
 

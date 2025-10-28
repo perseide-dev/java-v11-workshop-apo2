@@ -16,8 +16,7 @@ public class List {
         this.head = head;
     }
 
-    // Inserta un nodo al inicio
-    public void shift(int value) {
+    public void insertAtFront(int value) {
         Node x = new Node(value);
         if (head != null) {
             x.setLink(head);
@@ -25,8 +24,7 @@ public class List {
         head = x;
     }
 
-    // Inserta un nodo al final
-    public void push(int value) {
+    public void insertAtEnd(int value) {
         Node x = new Node(value);
         if (head == null) {
             head = x;
@@ -40,9 +38,10 @@ public class List {
         }
     }
 
-    public void insert(int value, int position) {
+    
+    public void insertInto(int value, int position) {
         if (position < 0) {
-            position = 0; // normaliza negativos
+            position = 0; 
         }
         Node x = new Node(value);
 
@@ -63,7 +62,7 @@ public class List {
         p.setLink(x);
     }
 
-    public void unShift() {
+    public void deleteAtFront() {
         Node h = head;
 
         if (h == null) {
@@ -73,7 +72,7 @@ public class List {
         }
     }
 
-    public void pop() {
+    public void deleteAtEnd() {
         if (head == null) {
 
         } else {
@@ -89,7 +88,6 @@ public class List {
 
     }
 
-    // Imprime los valores de la lista
     public void printListValues() {
         if (head == null) {
             System.out.println("Empty list");
